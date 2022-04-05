@@ -9,21 +9,20 @@ const musicReducer = (state = initialState, action) => {
                 ...state,
                 music: action.payload
             }
-            case "ADD_SONG":
-                console.log(action);
-                return {
-                    ...state,
-                    music: [
-                        [...state.music], action.payload
-                    ]
-                }
-                case "DELETE_SONG":
-                    console.log(action);
-                    return {
+        case "ADD_SONG":
 
-                    }
-                    default:
-                        return state;
+            return {
+                ...state,
+                music: [[...state.music], action.payload]
+
+            }
+        case "DELETE_SONG":
+
+            return {
+
+            }
+        default:
+            return state;
     }
 }
 
