@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { useDispatch } from 'react-redux';
 import { initializeMusicList } from './actions/musicActions';
-
-//fetcha här http://localhost:5004/data.json
-//sen när datan kommit in -> skicka till redux store
+import MusicPage from './Component/MusicPage';
+// import Link from 'react-dom';
 
 function App() {
   const dispatch = useDispatch();
   const url = "http://localhost:5004/data.json";
   const [music, setMusic] = useState([]);
+
 
   useEffect(() => {
     fetch(url)
@@ -21,15 +21,30 @@ function App() {
     dispatch(initializeMusicList(music))
   }, [music])
 
+  // function handleClick() {
+
+  //   console.log("du kommer åt knappen");
+  // }
+  // const [state, setState] = useState("start")
+  // const AddMusicButton = (props) => {
+  //   return <button onClick={props.addMusic}>Starta mina låtförslag</button>
+  // }
 
   return (
     <main>
-      <p>Hohoh</p>
+      <h1>Hitta musiken</h1>
 
-      {music.map((music) => (
-        <p>{music.title}</p>
-      ))
-      }
+      {/* <Link to="/MusicPage">
+        <button>Starta mina förslag</button>
+      </Link> */}
+      {<button onClick={() => dispatch(initializeMusicList(music))}>Starta mina låtförslag</button>}
+
+      {/* {state === "start" && (<AddMusicButton addMusic={() => setState("add-music")} />)}
+      {state === "add-music" && <MusicPage />}
+      { {<AddMusicButton addMusic={triggerAddMusicState} />} } */}
+
+      <MusicPage />
+
     </main>
   );
 }

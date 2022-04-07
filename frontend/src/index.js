@@ -6,7 +6,7 @@ import { Provider, getState } from 'react-redux';
 import { createRoot } from 'react-dom/client';
 import musicReducer from './reducers/musicReducer';
 
-const store = createStore(musicReducer,
+export const store = createStore(musicReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 store.subscribe(store.getState)
