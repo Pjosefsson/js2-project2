@@ -3,26 +3,29 @@ let initialState = {
 }
 
 const musicReducer = (state = initialState, action) => {
+    console.log("HEJ; HEJ", action);
     switch (action.type) {
         case "INITIALIZE_MUSIC_LIST":
             return {
                 ...state,
                 music: action.payload
             }
-        case "ADD_SONG":
+            case "ADD_SONG":
 
-            return {
-                ...state,
-                music: [[...state.music], action.payload]
+                return {
+                    ...state,
+                    music: [
+                        [...state.music], action.payload
+                    ]
 
-            }
-        case "DELETE_SONG":
+                }
+                case "DELETE_SONG":
 
-            return {
+                    return {
 
-            }
-        default:
-            return state;
+                    }
+                    default:
+                        return state;
     }
 }
 
