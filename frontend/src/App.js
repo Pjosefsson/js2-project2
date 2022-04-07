@@ -5,7 +5,6 @@ import { initializeMusicList } from './actions/musicActions';
 import MusicPage from './Component/MusicPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-// import Link from 'react-dom';
 
 function App() {
   const dispatch = useDispatch();
