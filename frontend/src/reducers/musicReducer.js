@@ -1,31 +1,49 @@
 let initialState = {
-    music: []
+    music: [],
+    playlist: []
+}
+
+function filterSongs(songs, playListSongId) {
+    const newListOfSongs = []
+    songs.forEach(song => {
+        if (song.id === playListSongId) {
+            // gör inget
+        } else {
+            newListOfSongs.push(song)
+        }
+    });
+
+    return newListOfSongs
 }
 
 const musicReducer = (state = initialState, action) => {
-    console.log("HEJ; HEJ", action);
     switch (action.type) {
         case "INITIALIZE_MUSIC_LIST":
             return {
                 ...state,
                 music: action.payload
             }
-            case "ADD_SONG":
+            break
 
-                return {
-                    ...state,
-                    music: [
-                        [...state.music], action.payload
-                    ]
+        case "ADD_SONG":
 
-                }
-                case "DELETE_SONG":
+            return {
+                ...state,
+                playlist: [...state.playlist, action.payload]
 
-                    return {
+            }
+            break
+        case "DELETE_SONG":
+            const playlistSongId = action.payload
 
-                    }
-                    default:
-                        return state;
+            return {
+                ...state,
+                playlist: filterSongs(state.playlist, playlistSongId)
+            }
+            break
+        default:
+            return state;
+            break
     }
 }
 

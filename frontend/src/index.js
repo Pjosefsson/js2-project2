@@ -9,7 +9,6 @@ import musicReducer from './reducers/musicReducer';
 export const store = createStore(musicReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-store.subscribe(store.getState)
 const container = document.getElementById('root');
 const root = createRoot(container);
 

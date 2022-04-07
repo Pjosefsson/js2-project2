@@ -9,19 +9,16 @@ import { Link } from 'react-router-dom'
 function App() {
   const dispatch = useDispatch();
   const url = "http://localhost:5004/data.json";
-  const [music, setMusic] = useState([]);
 
   const fetchMusicList = async () => {
     const res = await fetch(url)
     const data = await res.json()
     return data
   }
-
   useEffect(() => {
     const getMusicList = async () => {
-      const musicList = await fetchMusicList()
-      setMusic(musicList)
-      initializeMusicList(musicList)
+      let musicList = await fetchMusicList()
+      dispatch(initializeMusicList(musicList))
     }
     getMusicList()
   }, [])
