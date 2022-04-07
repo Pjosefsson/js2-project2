@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import './App.css';
 import { useDispatch } from 'react-redux';
 import { initializeMusicList } from './actions/musicActions';
@@ -32,7 +32,7 @@ function App() {
               <h1>Hitta musiken</h1>
 
               <Link to="/musicPage">
-                <p>Starta mina förslag</p>
+                <p>Starta mina låtförslag</p>
               </Link>
 
             </>
@@ -40,7 +40,12 @@ function App() {
 
           <Route path='/musicPage' element={<MusicPage />} />
         </Routes>
+        <section>
+        </section>
       </main>
+      <footer>
+        <article><img src="https://i.pinimg.com/originals/ae/2e/56/ae2e5651b74a00d5d31b8c6453fa3ebb.png" alt="" /></article>
+      </footer>
     </Router>
 
   );

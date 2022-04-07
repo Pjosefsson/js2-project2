@@ -11,7 +11,10 @@ export const PlaylistSongCard = ({ id, title, album, artist, albumCover }) => {
     }
 
     return (
-        <section> {title}
+        <section>
+            <div>{<img src={albumCover} alt="" />}</div>
+            {title}{" - "}
+            <span>{album}{", "}{artist}</span>
             <button onClick={removeSong}>🗑</button>
         </section>
     )

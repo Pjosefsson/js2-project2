@@ -13,9 +13,10 @@ export const SongCard = (song) => {
     }
 
     return (
-        <section> {title}
-            <span>{album}{artist}</span>
-            {/* <img src={albumCover} alt="" /> */}
+        <section>
+            <div>{<img src={albumCover} alt="" />}</div>
+            {title} {" - "}
+            <span>{album}{", "}{artist}</span>
             <button onClick={addToPlaylist}>🎶</button>
         </section>
     )
